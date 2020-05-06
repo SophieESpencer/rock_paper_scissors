@@ -1,1 +1,55 @@
-This is my html and this is a test.
+<script>let playerScore = 0;
+        let computerScore = 0;
+        let arr = ["rock", "paper", "scissors"];
+        
+        //computer creates random pick
+        
+        function computerPlay(){
+            let choice = arr[Math.floor(Math.random() * 3)];
+            return choice;
+        }
+
+        // single round of play
+        function playRound(playerSelection,computerSelection)
+        {playerSelection = prompt("Rock, paper or scissors?");
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerPlay();
+            if (playerSelection == computerSelection){
+                return 'Its a draw!';
+                } else if (playerSelection == 'rock' && computerSelection == 'scissors'){
+                    playerScore++;
+                    return "You win! Rock beats Scissors!";
+                } else if (playerSelection == 'rock' && computerSelection == 'paper'){
+                    computerScore++;
+                    return "You lose! Paper beats Rock!";
+                } else if (playerSelection == 'paper' && computerSelection == 'rock'){
+                    playerScore++;
+                    return "You win! Paper beats Rock!";
+                } else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+                    computerScore++;
+                    return "You lose! Scissors beats Rock!";
+                } else if (playerSelection == 'scissors' && computerSelection == 'rock'){
+                    computerScore++;
+                    return "You lose! Rock beats Scissors!";
+                } else if (playerSelection == 'scissors' && computerSelection == 'paper'){
+                    playerScore++;
+                    return "You win! Scissors beats Paper!";
+                } else {
+                    return "Something went wrong, try again."
+                }
+            }
+
+            function game(){
+                console.log(playRound());
+                console.log(playRound());
+                console.log(playRound());
+                console.log(playRound());
+                console.log(playRound());
+                if (playerScore > computerScore){
+                    console.log('You win! Final Score: ' + playerScore + ' to ' + computerScore);
+                } else if (computerScore > playerScore){
+                    console.log('You lose! Final Score: ' + playerScore + ' to ' + computerScore);
+                } else
+                console.log('You tied. Final Score: ' + playerScore + ' to ' + computerScore);
+            }
+            </script>
